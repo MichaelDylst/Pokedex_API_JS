@@ -12,7 +12,7 @@ General layout has been made.
   Their image shows up
 
 ## What does not work? 
-  Evolution chain - there is now a bug that always shows up the evolution of the first search.
+  Evolution chain - there is now a bug that always shows up the evolution of the previous search even though there is another evo or no more evo. 
   
   It's only the first 4 moves that show up, which makes that there are a lot of duplicate moves like : ice punch, mega punch,...
 
