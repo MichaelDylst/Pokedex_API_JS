@@ -77,19 +77,22 @@ async function getPokemon(){
     });
     
     // get evolution data from API call 
-    //let pokeSpeciesURL = `https://pokeapi.co/api/v2/pokemon-species/${pokeID}/`
-    //let pokeEvoURL = `https://pokeapi.co/api/v2/evolution-chain/${pokeID}/`
-    let pokeSpecies = await fetch(`${pokeData.species.url}`);
-    let pokeSpeciesData = await pokeSpecies.json();
-    console.log(pokeSpeciesData);
-    let pokeEvoApi = await fetch(`${pokeSpeciesData.evolution_chain.url}`);
-    let pokeEvoData = await pokeEvoApi.json();
-    if(pokeEvoData.chain.evolves_to.length > 0){
+    let pokeSpeciesURL = `https://pokeapi.co/api/v2/pokemon-species/${pokeID}/`;
+    let pokeSpeciesAPI = await fetch(`${pokeSpeciesURL}`);
+    let pokeSpeciesData = await pokeSpeciesAPI.json();
+    console.log(pokeSpeciesData)
+    let pokeEvoURL = `${pokeSpeciesData.evolution_chain.url}`
+    console.log(pokeEvoURL)
+    let pokeEvoAPI = await fetch(`${pokeEvoURL}`)
+    let pokeEvoData = await pokeEvoAPI.json()
+    console.log(pokeEvoData)
+
+    if(pokeEvoData.chain.evolves_to.length > 0 && pokeEvoData.chain.evolves_to[0].species.name !== pokeData.name ){
         console.log(pokeEvoData);
         let pokeEvoName = pokeEvoData.chain.evolves_to[0].species.name;
         console.log(pokeEvoName);
     } else{
-        console.log("There is no evolution of this pokemon.")
+        console.log("There is no evolution of this pokemon.");
     }
 }
 buttonSearch.onclick = getPokemon;
