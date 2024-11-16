@@ -81,12 +81,15 @@ async function getPokemon(){
     //let pokeEvoURL = `https://pokeapi.co/api/v2/evolution-chain/${pokeID}/`
     let pokeSpecies = await fetch(`${pokeData.species.url}`);
     let pokeSpeciesData = await pokeSpecies.json();
-    //console.log(pokeSpeciesData);
+    console.log(pokeSpeciesData);
     let pokeEvoApi = await fetch(`${pokeSpeciesData.evolution_chain.url}`);
     let pokeEvoData = await pokeEvoApi.json();
-    console.log(pokeEvoData);
-    let pokeEvoName = pokeEvoData.chain.evolves_to[0].species.name;
-    console.log(pokeEvoName);
-
+    if(pokeEvoData.chain.evolves_to.length > 1){
+        console.log(pokeEvoData);
+        let pokeEvoName = pokeEvoData.chain.evolves_to[0].species.name;
+        console.log(pokeEvoName);
+    } else{
+        console.log("There is no evolution of this pokemon.")
+    }
 }
 buttonSearch.onclick = getPokemon;
