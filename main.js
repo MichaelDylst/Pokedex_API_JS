@@ -76,8 +76,17 @@ async function getPokemon(){
             pokemonMoves.appendChild(moveElement)
     });
     
-    
-
+    // get evolution data from API call 
+    //let pokeSpeciesURL = `https://pokeapi.co/api/v2/pokemon-species/${pokeID}/`
+    //let pokeEvoURL = `https://pokeapi.co/api/v2/evolution-chain/${pokeID}/`
+    let pokeSpecies = await fetch(`${pokeData.species.url}`);
+    let pokeSpeciesData = await pokeSpecies.json();
+    //console.log(pokeSpeciesData);
+    let pokeEvoApi = await fetch(`${pokeSpeciesData.evolution_chain.url}`);
+    let pokeEvoData = await pokeEvoApi.json();
+    console.log(pokeEvoData);
+    let pokeEvoName = pokeEvoData.chain.evolves_to[0].species.name;
+    console.log(pokeEvoName);
 
 }
 buttonSearch.onclick = getPokemon;
