@@ -17,4 +17,8 @@ General layout has been made.
   It's only the first 4 moves that show up, which makes that there are a lot of duplicate moves like : ice punch, mega punch,...
 
 
+### Evolution chain 
+  #### how to access? 
+  https://pokeapi.co/api/v2/pokemon-species/4/ -> This link gets you into the pokemon species. The 4 is your pokemon ID. 
+
 ### Let's get to work!
