@@ -12,8 +12,8 @@ async function getPokemon(){
     let pokemonType = document.getElementsByClassName("pokemon-type")[0];
     let pokemonMoves = document.getElementsByClassName("pokemon-moves-list")[0];
     let pokedexMoves = document.getElementById("pokedex-moves")
-
     let runner = 1;
+    let pokemonId = document.getElementsByClassName("pokemon-id")[0];
 
     const pokemonTypes = [];
     const pokemonMoveArray = [];
@@ -33,7 +33,6 @@ async function getPokemon(){
 
     }
 
-
     // first API-call to fetch the data when the searchbutton is clicked.
     let pokeResponse = await fetch(`${pokeURL}${searchInput}`);
     let pokeData = await pokeResponse.json();
@@ -44,6 +43,9 @@ async function getPokemon(){
 
     pokemonName.innerHTML = pokeData.name;
         pokemonName.style.textTransform = "capitalize";
+
+    // get pokemon_id 
+    pokemonId.innerHTML = pokeData.id;
         
     // Type select,  putting them in array, foreach through array and adding h3 elements for each element in array.
     for(let i = 0; i < pokeData.types.length; i++){
@@ -60,7 +62,9 @@ async function getPokemon(){
                 runner++;
             });
         }
-    
+
+
+    // Getting the first 4 moves and adding them to an array - making 4 li items from that array with the forEach 
     for(let i = 0; i <pokeData.moves.length && i < 4; i++ ){
         pokemonMoveArray.push(pokeData.moves[i].move.name);
         console.log(pokemonMoveArray)
@@ -70,7 +74,9 @@ async function getPokemon(){
             moveElement.textContent = j;
             pokemonMoves.appendChild(moveElement)
     });
-    //console.log(pokeData.moves[0].move.name);
+    
+    
+
 
 }
 buttonSearch.onclick = getPokemon;
