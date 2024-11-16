@@ -84,7 +84,7 @@ async function getPokemon(){
     console.log(pokeSpeciesData);
     let pokeEvoApi = await fetch(`${pokeSpeciesData.evolution_chain.url}`);
     let pokeEvoData = await pokeEvoApi.json();
-    if(pokeEvoData.chain.evolves_to.length > 1){
+    if(pokeEvoData.chain.evolves_to.length > 0){
         console.log(pokeEvoData);
         let pokeEvoName = pokeEvoData.chain.evolves_to[0].species.name;
         console.log(pokeEvoName);
