@@ -44,8 +44,9 @@ async function getPokemon(){
     pokemonName.innerHTML = pokeData.name;
         pokemonName.style.textTransform = "capitalize";
 
-    // get pokemon_id 
-    pokemonId.innerHTML = pokeData.id;
+    // get pokemon_id
+    let pokeID = pokeData.id;
+    pokemonId.innerHTML = pokeID;
         
     // Type select,  putting them in array, foreach through array and adding h3 elements for each element in array.
     for(let i = 0; i < pokeData.types.length; i++){
