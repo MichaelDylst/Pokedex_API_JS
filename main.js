@@ -14,6 +14,7 @@ async function getPokemon(){
     let pokedexMoves = document.getElementById("pokedex-moves")
     let runner = 1;
     let pokemonId = document.getElementsByClassName("pokemon-id")[0];
+    let evoImages = document.getElementById("evo-images")
 
     const pokemonTypes = [];
     const pokemonMoveArray = [];
@@ -21,7 +22,7 @@ async function getPokemon(){
     const imageEvoList = [];
     const pokedexInfo = document.getElementById("pokedex-info")
     
-    //removing the h3,li elements that were created with the previous search.
+    //removing the h3,li,p & img elements that were created with the previous search.
     const pokedexInfoH2Childs = pokedexInfo.querySelectorAll("h3");
             pokedexInfoH2Childs.forEach(element => {
                 element.remove();
@@ -32,8 +33,23 @@ async function getPokemon(){
         pokemonMovesChilds.forEach(element => {
             element.remove();
         });
-
     }
+
+    if(evoImages.querySelectorAll("p")){
+        const pokemonEvoChilds = evoImages.querySelectorAll("p")
+        pokemonEvoChilds.forEach(element =>{
+            element.remove();
+        })
+    };
+
+    if(evoImages.querySelectorAll("img")){
+        const pokemonEvoChilds = evoImages.querySelectorAll("img")
+        pokemonEvoChilds.forEach(element =>{
+            element.remove();
+        })
+    };
+
+
 
     // first API-call to fetch the data when the searchbutton is clicked.
     let pokeResponse = await fetch(`${pokeURL}${searchInput}`);
@@ -89,10 +105,10 @@ async function getPokemon(){
     let pokeEvoData = await pokeEvoAPI.json()
     console.log(pokeEvoData)
 
-
     evoNames.push(pokeEvoData.chain.species.name);
     pokeEvoData.chain.evolves_to.forEach(evolution => {
         evoNames.push(evolution.species.name)
+
         evolution.evolves_to.forEach(nextEvolution => {
             evoNames.push(nextEvolution.species.name);
         });
@@ -104,13 +120,25 @@ async function getPokemon(){
 
     if(evoNames.length > 1){
         for(let i = 0; i < evoNames.length; i++){
-        let pokeEvoImage = await fetch(`${pokeURL}${evoNames[i]}`);
-        let pokeEvoImageData = await pokeEvoImage.json();
+            let pokeEvoImage = await fetch(`${pokeURL}${evoNames[i]}`);
+            let pokeEvoImageData = await pokeEvoImage.json();
+            imageEvoList.push(pokeEvoImageData.sprites.front_default);
+        };
 
-    imageEvoList.push(pokeEvoImageData.sprites.front_default);
-       
-    }};
+        console.log(imageEvoList);
+        let e = 0;
+         imageEvoList.forEach(element => {
+                console.log(element);
+                let evoPElement = document.createElement("p");
+                let evoImgElement = document.createElement("img");
+                evoPElement.textContent = evoNames[e];
+                evoImgElement.src = element;
+                evoPElement.style.textTransform = "capitalize";
+                evoImages.appendChild(evoPElement);
+                evoImages.appendChild(evoImgElement);
+                e++;
+            });
+    };
 
-    console.log(imageEvoList) 
 }
 buttonSearch.onclick = getPokemon;

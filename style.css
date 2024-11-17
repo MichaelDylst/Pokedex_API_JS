@@ -68,10 +68,16 @@ body{
     border-radius: 20px;
 }
 
-#pokedex-image, #pokedex-evo{
+#pokedex-image{
     flex:1;
     padding:10px;
     text-align: center; 
+
+}
+#pokedex-evo{
+    width:200px;
+    height:200px;
+    overflow: auto;
 }
 
 .pokemon-moves-list{
@@ -79,7 +85,7 @@ body{
     text-align: center;
 }
 
-img{
+#pokemon-image{
     height:200px;
     width:200px;
     background-color: rgba(255, 232, 197, 0.7);
