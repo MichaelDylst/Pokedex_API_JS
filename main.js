@@ -58,13 +58,14 @@ async function getPokemon(){
     // change the variables that were made before with the data provided by API-call 
     let pokemonImageSrc = pokeData.sprites.other.dream_world.front_default;
     image.src = pokemonImageSrc 
+    let pokeID = pokeData.id;
+    pokemonName.innerHTML = pokeData.name + " # " + pokeID;
 
-    pokemonName.innerHTML = pokeData.name;
         pokemonName.style.textTransform = "capitalize";
 
     // get pokemon_id
-    let pokeID = pokeData.id;
-    pokemonId.innerHTML = pokeID;
+    
+    //pokemonId.innerHTML = "ID: " + pokeID;
         
     // Type select,  putting them in array, foreach through array and adding h3 elements for each element in array.
     for(let i = 0; i < pokeData.types.length; i++){
