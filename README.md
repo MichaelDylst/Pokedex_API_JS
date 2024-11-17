@@ -11,13 +11,9 @@ General layout has been made.
   
   Their image shows up
 
+  Evolution chain shows with scrollable field ( css = overflow: auto;)
+
 ## What does not work? 
-  Evolution chain - there is now a bug that always shows up the evolution of the previous search even though there is another evo or no more evo. 
-  ### FIXED 
-  The evolution chain now correctly shows a log that there is no evo left when there is no evo left. 
-  ### NEW BUG
-  Shows the log that there is no evo left when there still is an evo left `${:()}`
-  
   It's only the first 4 moves that show up, which makes that there are a lot of duplicate moves like : ice punch, mega punch,...
 
 
