@@ -17,6 +17,8 @@ async function getPokemon(){
 
     const pokemonTypes = [];
     const pokemonMoveArray = [];
+    const evoNames = [];
+    const imageEvoList = [];
     const pokedexInfo = document.getElementById("pokedex-info")
     
     //removing the h3,li elements that were created with the previous search.
@@ -87,12 +89,28 @@ async function getPokemon(){
     let pokeEvoData = await pokeEvoAPI.json()
     console.log(pokeEvoData)
 
-    if(pokeEvoData.chain.evolves_to.length > 0 && pokeEvoData.chain.evolves_to[0].species.name !== pokeData.name ){
-        console.log(pokeEvoData);
-        let pokeEvoName = pokeEvoData.chain.evolves_to[0].species.name;
-        console.log(pokeEvoName);
-    } else{
-        console.log("There is no evolution of this pokemon.");
-    }
+
+    evoNames.push(pokeEvoData.chain.species.name);
+    pokeEvoData.chain.evolves_to.forEach(evolution => {
+        evoNames.push(evolution.species.name)
+        evolution.evolves_to.forEach(nextEvolution => {
+            evoNames.push(nextEvolution.species.name);
+        });
+    });
+    console.log(evoNames);
+    if (evoNames[0] === pokeData.name){
+        console.log("There is only a base evolution.");
+    }  
+
+    if(evoNames.length > 1){
+        for(let i = 0; i < evoNames.length; i++){
+        let pokeEvoImage = await fetch(`${pokeURL}${evoNames[i]}`);
+        let pokeEvoImageData = await pokeEvoImage.json();
+
+    imageEvoList.push(pokeEvoImageData.sprites.front_default);
+       
+    }};
+
+    console.log(imageEvoList) 
 }
 buttonSearch.onclick = getPokemon;
