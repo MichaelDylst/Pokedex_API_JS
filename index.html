@@ -1,49 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokédex</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
 <header id="pokedex-header">
     <h1 class="border-bottom">Pokédex</h1>
     <h2>Look up your favourite pokémon!</h2>
     <div id="pokedex-search">
-    <input id="search" type="text" placeholder="Pokemon name or ID">
-    <button id="search-button">Search Pokémon</button>
-</div>  
+        <input id="search" type="text" placeholder="Pokemon name or ID">
+        <button id="search-button">Search Pokémon</button>
+    </div>  
 </header>
+
 <div id="pokedex-shape">
     <div id="pokedex-info">
         <h2 class="pokemon-name border-bottom" >Name</h2>
-        <!--<h4 class="pokemon-id"></h4>-->
         <h3 class="pokemon-type"></h2>
-        
     </div>
     <div id="pokedex-moves">
         <h2 class="pokemon-moves border-bottom" >Moves</h2>
         <span class="pokemon-moves-span"></span>
-        <!--<ul class="pokemon-moves-list">
-        </ul>-->
     </div>
 
-</div>
-    <div id="pokedex-assets">
         <div id="pokedex-image">
             <h2 class="border-bottom">Pokédex Image</h3>
             <img src="images/pokeball-icon-27049.png" id="pokemon-image">
         </div>
         <div id="pokedex-evo">
             <h2 class="pokemon-evolutions border-bottom">Evolutions</h2>
-            <div id="evo-images">
-            </div>
+            <div id="evo-images"></div>
         </div>
-
 </div>
 
+<script src="main.js"></script>   
 
-<script src="main.js"></script>    
 </body>
 </html>
