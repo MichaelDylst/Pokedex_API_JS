@@ -1,13 +1,15 @@
 body{
     display:flex;
-    flex-flow: column;
-    align-items: center;
+    flex-flow: column wrap-reverse;
+    align-items:center;
     background-color:#FF0000;
     color:#FFE8C5;
     width:100%;
 }
 
 #pokedex-header{
+    display:flex;
+    flex-flow: column wrap;
     text-align: center;
     background-color:#97BE5A ;
     max-width:100%;
@@ -40,15 +42,14 @@ body{
 }
 
 #pokedex-search{
-    margin-top: 1em;
-    max-width: 30%;
-    background-color:#97BE5A ;
     display:flex;
-    flex-flow: column;
-    align-items: center;
+    flex-flow: column wrap;
+    max-width: 100%;
+    justify-content: center;
+    background-color:#97BE5A ;
     padding: 10px;
     border-radius:5px;
-    border-bottom: 20px solid #FFA27F;
+
 }
 
 #search{
