@@ -10,7 +10,7 @@ async function getPokemon(){
         console.log(searchInput)
     let pokemonName = document.getElementsByClassName("pokemon-name")[0];
     let pokemonType = document.getElementsByClassName("pokemon-type")[0];
-    let pokemonMoves = document.getElementsByClassName("pokemon-moves-list")[0];
+    let pokemonMoves = document.getElementsByClassName("pokemon-moves-span")[0];
     let pokedexMoves = document.getElementById("pokedex-moves")
     let runner = 1;
     let pokemonId = document.getElementsByClassName("pokemon-id")[0];
