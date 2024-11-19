@@ -87,15 +87,26 @@ async function getPokemon(){
                 typeElement.style.textTransform = "capitalize"
                 pokedexInfo.appendChild(typeElement);
                 runner++;
-            });
+            });;
         }
+    console.log("moves length: " + pokeData.moves.length)
+    console.log("random value: " + Math.floor( Math.random()*pokeData.moves.length))
 
 
-    // Getting the first 4 moves and adding them to an array - making 4 li items from that array with the forEach 
-    for(let i = 0; i <pokeData.moves.length && i < 4; i++ ){
+    // Getting the first 4 moves and adding them to an array - making 4 p items from that array with the forEach 
+    /*for(let i = Math.floor( Math.random()*pokeData.moves.length); i <pokeData.moves.length && i < 4; i++){
+        console.log(i);
         pokemonMoveArray.push(pokeData.moves[i].move.name);
         console.log(pokemonMoveArray)
-        } pokemonMoveArray.forEach(j => {
+        } */
+
+        let shuffledMoves = pokeData.moves.sort(() =>  0.5 - Math.random()).slice(0, 4);
+        shuffledMoves.forEach(move => {
+            pokemonMoveArray.push(move.move.name);
+        })
+    
+        
+        pokemonMoveArray.forEach(j => {
             let moveElement = document.createElement("p");
             moveElement.classList.add(`pokemon-move-${j}`);
             moveElement.textContent = j;
