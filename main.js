@@ -22,18 +22,11 @@ async function getPokemon(){
     const imageEvoList = [];
     const pokedexInfo = document.getElementById("pokedex-info")
     
-    //removing the h3,li,p & img elements that were created with the previous search.
+    //removing the h3, p & img elements that were created with the previous search.
         let pokedexInfoH2Childs = pokedexInfo.querySelectorAll("h3");
             pokedexInfoH2Childs.forEach(element => {
                 element.remove();
             });
-    
-    /*if(pokedexMoves.querySelectorAll("li")){
-        const pokemonMovesChilds = pokedexMoves.querySelectorAll("li");
-        pokemonMovesChilds.forEach(element => {
-            element.remove();
-        });
-    }*/
 
     if(evoImages.querySelectorAll("p")){
         let pokemonEvoChilds = evoImages.querySelectorAll("p")
@@ -66,7 +59,7 @@ async function getPokemon(){
     let pokemonImageSrc = pokeData.sprites.other.dream_world.front_default;
     image.src = pokemonImageSrc 
     let pokeID = pokeData.id;
-    pokemonName.innerHTML = pokeData.name + " # " + pokeID;
+    pokemonName.innerHTML = pokeData.name + "<br> # " + pokeID;
 
         pokemonName.style.textTransform = "capitalize";
 
@@ -82,16 +75,19 @@ async function getPokemon(){
             pokemonTypes.forEach(j => {
                 console.log(j)
                 let typeElement = document.createElement("h3");
-                typeElement.classList.add(`pokemon-type-${j}`)
-                typeElement.textContent = `Type ${runner}: ` + j;
+                let typeP = document.createElement("p");
+                typeElement.classList.add(`pokemon-type-${j}` + "border-bottom")
+                typeElement.textContent = `Type ${runner}: `;
                 typeElement.style.textTransform = "capitalize"
+                typeP.textContent = j;
+                typeP.style.textTransform = "capitalize";
                 pokedexInfo.appendChild(typeElement);
+                pokedexInfo.appendChild(typeP);
                 runner++;
             });;
         }
     console.log("moves length: " + pokeData.moves.length)
     console.log("random value: " + Math.floor( Math.random()*pokeData.moves.length))
-
 
     // Getting the first 4 moves and adding them to an array - making 4 p items from that array with the forEach 
     /*for(let i = Math.floor( Math.random()*pokeData.moves.length); i <pokeData.moves.length && i < 4; i++){
@@ -99,7 +95,6 @@ async function getPokemon(){
         pokemonMoveArray.push(pokeData.moves[i].move.name);
         console.log(pokemonMoveArray)
         } */
-
         let shuffledMoves = pokeData.moves.sort(() =>  0.5 - Math.random()).slice(0, 4);
         shuffledMoves.forEach(move => {
             pokemonMoveArray.push(move.move.name);
@@ -108,6 +103,7 @@ async function getPokemon(){
         
         pokemonMoveArray.forEach(j => {
             let moveElement = document.createElement("p");
+            moveElement.style.textTransform = "capitalize";
             moveElement.classList.add(`pokemon-move-${j}`);
             moveElement.textContent = j;
             pokemonMoves.appendChild(moveElement)
@@ -160,4 +156,5 @@ async function getPokemon(){
     };
 
 }
+
 buttonSearch.onclick = getPokemon;
