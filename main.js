@@ -126,7 +126,7 @@ async function getPokemon(){
         console.log("There is only a base evolution.");
     }  
 
-    if(evoNames.length > 1){
+    if(evoNames.length >= 1){
         for(let i = 0; i < evoNames.length; i++){
             let pokeEvoImage = await fetch(`${pokeURL}${evoNames[i]}`);
             let pokeEvoImageData = await pokeEvoImage.json();
