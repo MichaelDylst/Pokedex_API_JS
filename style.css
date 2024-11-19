@@ -81,7 +81,7 @@ body{
 }
 
 .pokemon-moves-list{
-    list-style-position: inside;
+    /*list-style-position: inside;*/
     text-align: center;
 }
 

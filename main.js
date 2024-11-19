@@ -23,27 +23,34 @@ async function getPokemon(){
     const pokedexInfo = document.getElementById("pokedex-info")
     
     //removing the h3,li,p & img elements that were created with the previous search.
-    const pokedexInfoH2Childs = pokedexInfo.querySelectorAll("h3");
+        let pokedexInfoH2Childs = pokedexInfo.querySelectorAll("h3");
             pokedexInfoH2Childs.forEach(element => {
                 element.remove();
             });
     
-    if(pokedexMoves.querySelectorAll("li")){
+    /*if(pokedexMoves.querySelectorAll("li")){
         const pokemonMovesChilds = pokedexMoves.querySelectorAll("li");
         pokemonMovesChilds.forEach(element => {
             element.remove();
         });
-    }
+    }*/
 
     if(evoImages.querySelectorAll("p")){
-        const pokemonEvoChilds = evoImages.querySelectorAll("p")
+        let pokemonEvoChilds = evoImages.querySelectorAll("p")
         pokemonEvoChilds.forEach(element =>{
             element.remove();
         })
     };
 
     if(evoImages.querySelectorAll("img")){
-        const pokemonEvoChilds = evoImages.querySelectorAll("img")
+        let pokemonEvoChilds = evoImages.querySelectorAll("img")
+        pokemonEvoChilds.forEach(element =>{
+            element.remove();
+        })
+    };
+
+    if(pokemonMoves.querySelectorAll("p")){
+        let pokemonEvoChilds = pokemonMoves.querySelectorAll("p");
         pokemonEvoChilds.forEach(element =>{
             element.remove();
         })
@@ -89,7 +96,7 @@ async function getPokemon(){
         pokemonMoveArray.push(pokeData.moves[i].move.name);
         console.log(pokemonMoveArray)
         } pokemonMoveArray.forEach(j => {
-            let moveElement = document.createElement("li");
+            let moveElement = document.createElement("p");
             moveElement.classList.add(`pokemon-move-${j}`);
             moveElement.textContent = j;
             pokemonMoves.appendChild(moveElement)
