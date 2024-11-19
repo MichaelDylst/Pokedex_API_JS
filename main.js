@@ -15,6 +15,7 @@ async function getPokemon(){
     let pokemonId = document.getElementsByClassName("pokemon-id")[0];
     let evoImages = document.getElementById("chain-evo")
     let prevEvoImage = document.getElementById("prev-evo")
+    let pokedexTypes = document.getElementById("pokedex-types")
 
     const pokemonTypes = [];
     const pokemonMoveArray = [];
@@ -88,8 +89,8 @@ async function getPokemon(){
                 typeElement.style.textTransform = "capitalize"
                 typeP.textContent = j;
                 typeP.style.textTransform = "capitalize";
-                pokedexInfo.appendChild(typeElement);
-                pokedexInfo.appendChild(typeP);
+                pokedexTypes.appendChild(typeElement);
+                pokedexTypes.appendChild(typeP);
                 runner++;
             });;
         }
