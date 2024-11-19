@@ -1,0 +1,71 @@
+body{
+    display: flex;
+    flex-flow: column;
+    font-family: Verdana, Tahoma, sans-serif;
+    max-width: 1200px;
+    margin: 4px auto;
+}
+
+#pokedex-header{
+    display:flex;
+    flex-flow: column;
+    align-items: center;
+    border: 1px solid black;
+}
+
+#pokedex-header h1{
+    font-size: 32px;
+    margin-bottom: 0.3em;
+}
+
+#pokedex-header input{
+    margin-bottom: 0.5em;
+}
+
+#pokedex-info{
+    width:100%;
+}
+
+#pokedex-shape{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    border: 1px solid black;
+    margin-top: 1em;
+}
+
+.pokemon-name{
+    text-align: center;
+    width:100%;
+}
+
+#pokedex-types-moves-abilities{
+    display:flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.pokemon-type, .pokemon-moves, .pokemon-abilities {
+    width: 39.33%; /* Zorg ervoor dat de items een gelijke breedte hebben */
+}
+
+#pokedex-image{
+    display:flex;
+    width:100%;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+#prev-evo, #pokemon-image, #chain-evo{
+    width:39.33%;
+}
+
+#chain-evo{
+    overflow: auto;
+}
+
+#pokemon-image{
+    width:200px;
+    height:200px;
+}

@@ -1,20 +1,20 @@
 //let input = "bulbasaur"
 const pokeURL = 'https://pokeapi.co/api/v2/pokemon/'
 let buttonSearch = document.getElementById("search-button")
-
+const searchField = document.getElementById('search-field');
 
 async function getPokemon(){
     // assigning the variables from the html document 
-    let searchInput = document.getElementById("search").value.toLowerCase();
+    let searchInput = document.getElementById("search-field").value.toLowerCase();
     let image = document.getElementById("pokemon-image");
         console.log(searchInput)
     let pokemonName = document.getElementsByClassName("pokemon-name")[0];
     let pokemonType = document.getElementsByClassName("pokemon-type")[0];
-    let pokemonMoves = document.getElementsByClassName("pokemon-moves-span")[0];
     let pokedexMoves = document.getElementById("pokedex-moves")
     let runner = 1;
     let pokemonId = document.getElementsByClassName("pokemon-id")[0];
-    let evoImages = document.getElementById("evo-images")
+    let evoImages = document.getElementById("chain-evo")
+    let prevEvoImage = document.getElementById("prev-evo")
 
     const pokemonTypes = [];
     const pokemonMoveArray = [];
@@ -42,12 +42,19 @@ async function getPokemon(){
         })
     };
 
-    if(pokemonMoves.querySelectorAll("p")){
-        let pokemonEvoChilds = pokemonMoves.querySelectorAll("p");
+    if(pokedexMoves.querySelectorAll("p")){
+        let pokemonEvoChilds = pokedexMoves.querySelectorAll("p");
         pokemonEvoChilds.forEach(element =>{
             element.remove();
         })
     };
+
+    if(prevEvoImage.querySelectorAll("img")){
+        let prevEvoChilds = prevEvoImage.querySelectorAll("img");
+        prevEvoChilds.forEach(img =>{
+            img.remove();
+        })
+    }
 
 
 
@@ -106,7 +113,7 @@ async function getPokemon(){
             moveElement.style.textTransform = "capitalize";
             moveElement.classList.add(`pokemon-move-${j}`);
             moveElement.textContent = j;
-            pokemonMoves.appendChild(moveElement)
+            pokedexMoves.appendChild(moveElement)
     });
     
     // get evolution data from API call 
@@ -153,8 +160,20 @@ async function getPokemon(){
                 evoImages.appendChild(evoImgElement);
                 e++;
             });
+        if(evoNames[0] !== pokeData.name){
+            let evoImgElement = document.createElement("img");
+            evoImgElement.src = imageEvoList[0];
+            prevEvoImage.appendChild(evoImgElement)
+        };
     };
+
 
 }
 
-buttonSearch.onclick = getPokemon;
+// Voeg een event listener toe aan het invoerveld
+searchField.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        // Controleer of de Enter-toets is ingedrukt
+        getPokemon();
+    }
+});

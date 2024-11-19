@@ -4,42 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokédex</title>
-    <link rel="stylesheet" href="style.css">
+    <title >Pokédex</title>
+    <link rel="stylesheet" href="style/style-v2.css">
 </head>
 
 <body>
+    <header id="pokedex-header">
+        <h1 class="title">Pokédex</h1>
+        <div id="pokedex-search">
+            <input id="search-field" type="text" placeholder="Pokemon name or ID">
+            <!--<button id="search-button">Search Pokémon</button>-->
+        </div>  
+    </header>
 
-<header id="pokedex-header">
-    <h1 class="border-bottom">Pokédex</h1>
-    <h2>Look up your favourite pokémon!</h2>
-    <div id="pokedex-search">
-        <input id="search" type="text" placeholder="Pokemon name or ID">
-        <button id="search-button">Search Pokémon</button>
-    </div>  
-</header>
+    <div id="pokedex-shape">
+        <div id="pokedex-info">
+            <div class="pokemon-name">
+                <p class="pokemon-name border-bottom">Name</p>
+            </div>
+            <div id="pokedex-types-moves-abilities">
+                <p class="pokemon-type">Types</p>
+                <p class="pokemon-moves border-bottom">Moves</p>
+                <p class="pokemon-abilities">Abilities</p>
+            </div>
+            <div id="pokedex-moves">
 
-<div id="pokedex-shape">
-    <div id="pokedex-info">
-        <h2 class="pokemon-name border-bottom" >Name</h2>
-        <h3 class="pokemon-type"></h2>
-    </div>
-    <div id="pokedex-moves">
-        <h2 class="pokemon-moves border-bottom" >Moves</h2>
-        <span class="pokemon-moves-span"></span>
-    </div>
+            </div>
+        </div>
 
         <div id="pokedex-image">
-            <h2 class="border-bottom">Pokédex Image</h3>
-            <img src="images/pokeball-icon-27049.png" id="pokemon-image">
+                <!--<h2 class="border-bottom">Pokédex Image</h2>-->
+                <div id="prev-evo"></div>
+                
+                <div id="pokedex-evo"><img src="images/pokeball-icon-27049.png" id="pokemon-image"></div>
+                    <!--<h2 class="pokemon-evolutions border-bottom">Evolutions</h2>-->
+                <div id="chain-evo"></div>
+                
+               
         </div>
-        <div id="pokedex-evo">
-            <h2 class="pokemon-evolutions border-bottom">Evolutions</h2>
-            <div id="evo-images"></div>
-        </div>
-</div>
+    </div>
 
-<script src="main.js"></script>   
+    <script src="main.js"></script>   
 
 </body>
 </html>
