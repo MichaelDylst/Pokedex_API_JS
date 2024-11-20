@@ -178,6 +178,7 @@ body{
     display:flex;
     flex-flow: column;
     align-items: center;
+    overflow:auto;
 }
 
 .chain-evo-images-container{
@@ -186,11 +187,16 @@ body{
     align-items: center;
     justify-content: space-between;
     text-align: center;
-    width:100%;
+
 }
 
 .evo-image{
     margin: 0 48px 0 48px;
+}
+.prev-evo-image{
+    height:96px;
+    width:96px;
+    margin-top: px;
 }
 
 

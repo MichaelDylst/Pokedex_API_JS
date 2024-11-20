@@ -4,6 +4,11 @@ let buttonSearch = document.getElementById("search-button")
 const searchField = document.getElementById('search-field');
 let pokedexShape = document.getElementById("pokedex-shape")
 
+let buttonMoves = document.getElementsByClassName("moves-button")[0];
+let buttonAbilities = document.getElementsByClassName("abilities-button")[0];
+let buttonEvolutions = document.getElementsByClassName("moves-button")[0];
+
+
 //pokedexShape.style.display = "none";
 
 async function getPokemon(){
@@ -197,16 +202,45 @@ async function getPokemon(){
                 evoChainContainer.appendChild(evoContainer);
         });
 
-    // Update de Base Form (indien nodig)
-    if (evoNames[0] !== pokeData.name) {
-        // Verander de afbeelding in de Base Form container
-        const prevEvoImage = prevEvoContainer.querySelector(".prev-evo-image");
-        prevEvoImage.src = imageEvoList[0];
-        prevEvoImage.alt = `Base Form: ${evoNames[0]}`;
-        prevEvoImage.style.display = "block"; // Zorg dat deze zichtbaar is
-    } else {
-        prevEvoContainer.style.display = "none"; // Verberg als er geen Base Form is
+        // Update de Base Form (indien nodig)
+        if (evoNames[0] !== pokeData.name) {
+            // Verander de afbeelding in de Base Form container
+            const prevEvoImage = document.createElement("img")
+            prevEvoImage.src = imageEvoList[0];
+            prevEvoImage.alt = `Base Form: ${evoNames[0]}`;
+            prevEvoContainer.appendChild(prevEvoImage)
+        } 
+    };
+}
+
+// Voeg een event listener toe aan het invoerveld
+searchField.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        // Controleer of de Enter-toets is ingedrukt
+        getPokemon();
     }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         /* imageEvoList.forEach(element => {
@@ -229,14 +263,3 @@ async function getPokemon(){
         }else{
             prevEvoImage.style.display = "inline";
         }*/
-       
-    };
-}
-
-// Voeg een event listener toe aan het invoerveld
-searchField.addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') {
-        // Controleer of de Enter-toets is ingedrukt
-        getPokemon();
-    }
-});
