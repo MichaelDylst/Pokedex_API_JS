@@ -28,18 +28,20 @@ body{
     margin-bottom: 0.2rem;
 }
 
-.pokemon-image-top {
-    height: 150px;
-    width: auto;
-    align-items: baseline;
-}
-
 .pokedex-shape{
     display: flex;
     height:100vh;
     flex-flow: column;
+    align-items: center;
     background-color: lightcoral;
     border-top-left-radius: 80px;
     border-top-right-radius: 80px;
     margin-top:1.2em;
+}
+
+.pokemon-image-top {
+    height: 150px;
+    width: auto;
+    align-items: baseline;
+    margin-top:-110px;
 }
