@@ -20,7 +20,9 @@ async function getPokemon(){
     let prevEvoImage = document.getElementById("prev-evo")
     let pokedexTypes = document.getElementById("pokedex-types")
     let runner = 1;
-
+    let evoImageOne = document.getElementsByClassName("evolution-image-0")[0];
+    let evoImageTwo = document.getElementsByClassName("evolution-image-1")[0];
+    let evoImageThree = document.getElementsByClassName("evolution-image-2")[0];
     const pokemonTypes = [];
     const pokemonMoveArray = [];
     const evoNames = [];
@@ -142,7 +144,7 @@ async function getPokemon(){
 
     //fetching flavor text 
 
-    
+
     evoNames.push(pokeEvoData.chain.species.name);
     pokeEvoData.chain.evolves_to.forEach(evolution => {
         evoNames.push(evolution.species.name)
@@ -151,7 +153,9 @@ async function getPokemon(){
             evoNames.push(nextEvolution.species.name);
         });
     });
+
     console.log(evoNames);
+
     if (evoNames[0] === pokeData.name){
         console.log("There is only a base evolution.");
     }  
@@ -165,6 +169,7 @@ async function getPokemon(){
 
         console.log(imageEvoList);
         let e = 0;
+
          imageEvoList.forEach(element => {
                 console.log(element);
                 let evoPElement = document.createElement("p");
