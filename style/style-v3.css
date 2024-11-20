@@ -1,5 +1,5 @@
 body{
-    font-family: Verdana, Tahoma, sans-serif;
+    font-family: Atma;
     margin-top: 5px;
     padding: 0;
     margin: 0;
@@ -27,6 +27,7 @@ body{
     padding: 0.5em;
     margin-bottom: 0.2rem;
     width: 150px;
+    font-family: Atma;
 }
 
 .pokedex-shape{
