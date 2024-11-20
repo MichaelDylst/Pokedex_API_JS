@@ -6,10 +6,10 @@ let pokedexShape = document.getElementById("pokedex-shape")
 
 let buttonMoves = document.getElementsByClassName("moves-button")[0];
 let buttonAbilities = document.getElementsByClassName("abilities-button")[0];
-let buttonEvolutions = document.getElementsByClassName("moves-button")[0];
-let divMoves = document.getElementById("pokedex-moves");
-let divAbilities = document.getElementById("pokedex-abilities");
-let divEvolutions = document.getElementById("pokedex-evolutions")
+let buttonEvolutions = document.getElementsByClassName("evolutions-button")[0];
+let divMoves = document.getElementsByClassName("moves-container")[0];
+let divAbilities = document.getElementsByClassName("abilities-container")[0];
+let divEvolutions = document.getElementsByClassName("evolutions-container")[0];
 
 
 //pokedexShape.style.display = "none";
@@ -229,7 +229,7 @@ buttonMoves.onclick = function(){
     divEvolutions.style.display = "none";
 
     divMoves.style.display = "flex";
-}
+};
 
 
 buttonAbilities.onclick = function(){
@@ -237,7 +237,7 @@ buttonAbilities.onclick = function(){
 
     divEvolutions.style.display = "none";
     divMoves.style.display = "none";
-}
+};
 
 
 
@@ -246,48 +246,4 @@ buttonEvolutions.onclick = function(){
     divMoves.style.display = "none";
 
     divEvolutions.style.display = "flex";
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /* imageEvoList.forEach(element => {
-                console.log(element);
-                let evoPElement = document.createElement("p");
-                let evoImgElement = document.createElement("img");
-                evoPElement.textContent = evoNames[e];
-                evoImgElement.src = element;
-                evoImgElement.classList.add(`evolution-image-${e}`,"evo-image")
-                evoPElement.style.textTransform = "capitalize";
-                evoPElement.classList.add(`evolution-${e}`,"title-small")
-                evoImages.appendChild(evoPElement);
-                evoImages.appendChild(evoImgElement);
-                e++;
-            });
-        if(evoNames[0] !== pokeData.name){
-            let evoImgElement = document.createElement("img");
-            evoImgElement.src = imageEvoList[0];
-            prevEvoImage.appendChild(evoImgElement)
-        }else{
-            prevEvoImage.style.display = "inline";
-        }*/
+};
