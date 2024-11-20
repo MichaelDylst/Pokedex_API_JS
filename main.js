@@ -20,23 +20,16 @@ async function getPokemon(){
     let image = document.getElementsByClassName("pokemon-image-top")[0];
         console.log(searchInput)
     let pokemonName = document.getElementsByClassName("pokemon-name")[0];
-    let pokemonType = document.getElementsByClassName("pokemon-type")[0];
-    let pokemonId = document.getElementsByClassName("pokemon-id")[0];
-    let pokeballBase = document.getElementsByClassName("pokeball-base")[0];
     let pokedexMoves = document.getElementById("pokedex-moves")
     let evoImages = document.getElementById("chain-evo")
     let prevEvoImage = document.getElementById("prev-evo")
     let pokedexTypes = document.getElementById("pokedex-types")
     let runner = 1;
-    let evoImageOne = document.getElementsByClassName("evolution-image-0")[0];
-    let evoImageTwo = document.getElementsByClassName("evolution-image-1")[0];
-    let evoImageThree = document.getElementsByClassName("evolution-image-2")[0];
 
     const pokemonTypes = [];
     const pokemonMoveArray = [];
     const evoNames = [];
     const imageEvoList = [];
-    const pokedexInfo = document.getElementById("pokedex-info")
     const evoChainContainer = document.querySelector("#chain-evo"); 
     const prevEvoContainer = document.querySelector("#prev-evo");
 
