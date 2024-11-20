@@ -1,0 +1,15 @@
+body{
+    display: flex;
+    flex-flow: column;
+    font-family: Verdana, Tahoma, sans-serif;
+}
+
+.pokedex-info-header{
+    display:flex;
+    flex-flow: column wrap;
+    align-items: center;
+    padding-bottom: 200px;
+}
+.pokedex-info-header h1{
+    margin: 0;
+}
