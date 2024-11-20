@@ -26,6 +26,7 @@ async function getPokemon(){
     let pokedexTypes = document.getElementById("pokedex-types")
     let runner = 1;
 
+
     const pokemonTypes = [];
     const pokemonMoveArray = [];
     const evoNames = [];
@@ -142,7 +143,7 @@ async function getPokemon(){
     let backgroundColor = pokeSpeciesData.color.name
     console.log(backgroundColor)
     document.body.style.backgroundColor = backgroundColor;
-
+    
     //fetching flavor text 
 
 

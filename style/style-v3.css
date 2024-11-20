@@ -39,7 +39,7 @@ body{
 
 .pokedex-shape{
     display: flex;
-    height:72vh;
+    height:78vh;
     flex-flow: column;
     align-items: center;
     background-color: rgb(255, 246, 233);
