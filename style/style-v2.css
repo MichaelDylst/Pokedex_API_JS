@@ -5,6 +5,21 @@ body{
     max-width: 1200px;
     margin: 4px auto;
 }
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%; /* Midden van de pagina */
+    height: 100%;
+    width: 1px; /* Dunne lijn */
+    background-color: red; /* Kleur van de lijn */
+    z-index: 1000; /* Zorg dat het boven andere content ligt */
+    pointer-events: none; /* Lijn niet klikbaar maken */
+}
+
+h2{
+    display: inline-flex;
+}
 
 #pokedex-header{
     display:flex;
@@ -29,7 +44,6 @@ body{
 #pokedex-shape{
     display: flex;
     flex-flow: column;
-    align-items: center;
     border: 1px solid black;
     margin-top: 1em;
 }
@@ -45,8 +59,10 @@ body{
     text-align: center;
 }
 
-.pokemon-type, .pokemon-moves, .pokemon-abilities {
-    width: 39.33%; /* Zorg ervoor dat de items een gelijke breedte hebben */
+.pokedex-info-headers {
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }
 
 #pokedex-image{
@@ -56,10 +72,11 @@ body{
     justify-content: space-between;
     align-items: center;
     text-align: center;
+    border-bottom: 1px solid black;
 }
 
-#prev-evo, #pokemon-image, #chain-evo{
-    width:39.33%;
+.pokedex-images{
+    width:100%;
 }
 
 #chain-evo{
@@ -67,7 +84,24 @@ body{
     overflow: auto;
 }
 
-#pokemon-image{
-    width:200px;
-    height:200px;
+/*#pokedex-evo{
+    overflow: hidden;
+    width: 150px; 
+    height: 150px;
+    border-radius: 60%;
+    display:flex;
+    justify-content: center;
+    border: 2px solid black;
+}*/
+
+#pokedex-evo img{
+    width: 80%;
+    height:auto;
 }
+
+.pokeball-base{
+    height: 150px;
+
+}
+
+

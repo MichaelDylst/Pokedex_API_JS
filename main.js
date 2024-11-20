@@ -2,6 +2,9 @@
 const pokeURL = 'https://pokeapi.co/api/v2/pokemon/'
 let buttonSearch = document.getElementById("search-button")
 const searchField = document.getElementById('search-field');
+let pokedexShape = document.getElementById("pokedex-shape")
+
+//pokedexShape.style.display = "none";
 
 async function getPokemon(){
     // assigning the variables from the html document 
@@ -10,12 +13,13 @@ async function getPokemon(){
         console.log(searchInput)
     let pokemonName = document.getElementsByClassName("pokemon-name")[0];
     let pokemonType = document.getElementsByClassName("pokemon-type")[0];
-    let pokedexMoves = document.getElementById("pokedex-moves")
-    let runner = 1;
     let pokemonId = document.getElementsByClassName("pokemon-id")[0];
+    let pokeballBase = document.getElementsByClassName("pokeball-base")[0];
+    let pokedexMoves = document.getElementById("pokedex-moves")
     let evoImages = document.getElementById("chain-evo")
     let prevEvoImage = document.getElementById("prev-evo")
     let pokedexTypes = document.getElementById("pokedex-types")
+    let runner = 1;
 
     const pokemonTypes = [];
     const pokemonMoveArray = [];
@@ -23,11 +27,18 @@ async function getPokemon(){
     const imageEvoList = [];
     const pokedexInfo = document.getElementById("pokedex-info")
     
+    pokedexShape.style.display = "flex"
+
     //removing the h3, p & img elements that were created with the previous search.
-        let pokedexInfoH2Childs = pokedexInfo.querySelectorAll("h3");
-            pokedexInfoH2Childs.forEach(element => {
-                element.remove();
-            });
+    let pokedexInfoH2Childs = pokedexTypes.querySelectorAll("h3");
+        pokedexInfoH2Childs.forEach(element => {
+            element.remove();
+        });
+
+    let pokedexInfoPChilds = pokedexTypes.querySelectorAll("p");
+        pokedexInfoPChilds.forEach(element => {
+            element.remove();
+        });
 
     if(evoImages.querySelectorAll("p")){
         let pokemonEvoChilds = evoImages.querySelectorAll("p")
@@ -165,7 +176,9 @@ async function getPokemon(){
             let evoImgElement = document.createElement("img");
             evoImgElement.src = imageEvoList[0];
             prevEvoImage.appendChild(evoImgElement)
-        };
+        }else{
+            prevEvoImage.style.display = "inline";
+        }
     };
 
 
