@@ -169,15 +169,22 @@ body{
     height:auto;
 
 }
-.prev-evo-container img{
-
-
-}
-
 
 .evolution-chain-container{
     width:100%;
+    display:flex;
+    flex-flow: column;
+    align-items: center;
 }
+
+.chain-evo-images-container{
+    display:flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
 
 .title{
     font-weight:500;
