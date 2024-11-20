@@ -27,6 +27,7 @@ async function getPokemon(){
     let pokedexAbilities = document.getElementById("pokedex-abilities");
     let runner = 1;
     let flavorText = document.getElementsByClassName("flavor-text")[0];
+    let eggImage = "images/egg.png";
 
     const pokemonTypes = [];
     const pokemonMoveArray = [];
@@ -218,7 +219,12 @@ async function getPokemon(){
             prevEvoImage.src = imageEvoList[0];
             prevEvoImage.alt = `Base Form: ${evoNames[0]}`;
             prevEvoContainer.appendChild(prevEvoImage)
-        } 
+        } else if( pokeSpeciesData.evolves_from_species === null){
+            const prevEvoImage = document.createElement("img");
+            prevEvoImage.src = eggImage;
+            prevEvoImage.classList.add("prev-evo-image");
+            prevEvoContainer.appendChild(prevEvoImage);
+        }
     };
 }
 
