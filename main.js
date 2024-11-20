@@ -140,6 +140,7 @@ async function getPokemon(){
     let pokeEvoData = await pokeEvoAPI.json()
     console.log(pokeEvoData)
 
+
     evoNames.push(pokeEvoData.chain.species.name);
     pokeEvoData.chain.evolves_to.forEach(evolution => {
         evoNames.push(evolution.species.name)
