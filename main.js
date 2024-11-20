@@ -222,7 +222,7 @@ async function getPokemon(){
         } else if( pokeSpeciesData.evolves_from_species === null){
             const prevEvoImage = document.createElement("img");
             prevEvoImage.src = eggImage;
-            prevEvoImage.classList.add("prev-evo-image");
+            prevEvoImage.classList.add("prev-evo-image-egg");
             prevEvoContainer.appendChild(prevEvoImage);
         }
     };
