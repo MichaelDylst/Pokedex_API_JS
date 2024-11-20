@@ -7,6 +7,9 @@ let pokedexShape = document.getElementById("pokedex-shape")
 let buttonMoves = document.getElementsByClassName("moves-button")[0];
 let buttonAbilities = document.getElementsByClassName("abilities-button")[0];
 let buttonEvolutions = document.getElementsByClassName("moves-button")[0];
+let divMoves = document.getElementById("pokedex-moves");
+let divAbilities = document.getElementById("pokedex-abilities");
+let divEvolutions = document.getElementById("pokedex-evolutions")
 
 
 //pokedexShape.style.display = "none";
@@ -220,6 +223,31 @@ searchField.addEventListener('keydown', function(event) {
         getPokemon();
     }
 });
+
+buttonMoves.onclick = function(){
+    divAbilities.style.display = "none";
+    divEvolutions.style.display = "none";
+
+    divMoves.style.display = "flex";
+}
+
+
+buttonAbilities.onclick = function(){
+    divAbilities.style.display = "flex";
+
+    divEvolutions.style.display = "none";
+    divMoves.style.display = "none";
+}
+
+
+
+buttonEvolutions.onclick = function(){
+    divAbilities.style.display = "none";
+    divMoves.style.display = "none";
+
+    divEvolutions.style.display = "flex";
+}
+
 
 
 
