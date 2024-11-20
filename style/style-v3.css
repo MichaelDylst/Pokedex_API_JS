@@ -165,7 +165,7 @@ body{
     flex-flow: column;
     align-items: center;
     width:90%;
-    margin-bottom: 24px;
+    margin-bottom: 48px;
     height:auto;
 
 }
@@ -183,7 +183,11 @@ body{
     align-items: center;
     justify-content: space-between;
     text-align: center;
-    padding:10px
+
+}
+
+.evo-image{
+    margin: 0 48px 0 48px;
 }
 
 
