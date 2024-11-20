@@ -38,7 +38,8 @@ async function getPokemon(){
     const imageEvoList = [];
     const pokedexInfo = document.getElementById("pokedex-info")
     const evoChainContainer = document.querySelector("#chain-evo"); 
-    const prevEvoContainer = document.querySelector("#prev-evo");  
+    const prevEvoContainer = document.querySelector("#prev-evo");
+
     
     pokedexShape.style.display = "flex"
 
@@ -98,6 +99,8 @@ async function getPokemon(){
     // get pokemon_id
     
     //pokemonId.innerHTML = "ID: " + pokeID;
+
+
         
     // Type select,  putting them in array, foreach through array and adding h3 elements for each element in array.
     for(let i = 0; i < pokeData.types.length; i++){
@@ -106,15 +109,10 @@ async function getPokemon(){
         if (pokemonTypes.length >= 1){
             pokemonTypes.forEach(j => {
                 console.log(j)
-                //let typeElement = document.createElement("h3");
                 let typeP = document.createElement("p");
-                //typeElement.classList.add(`pokemon-type-${j}` + "border-bottom")
-                //typeElement.textContent = `Type ${runner}: `;
-                //typeElement.style.textTransform = "capitalize"
                 typeP.classList.add("button-style")
                 typeP.textContent = j;
                 typeP.style.textTransform = "capitalize";
-                //pokedexTypes.appendChild(typeElement);
                 pokedexTypes.appendChild(typeP);
                 runner++;
             });;
@@ -122,12 +120,6 @@ async function getPokemon(){
     console.log("moves length: " + pokeData.moves.length)
     console.log("random value: " + Math.floor( Math.random()*pokeData.moves.length))
 
-    // Getting the first 4 moves and adding them to an array - making 4 p items from that array with the forEach 
-    /*for(let i = Math.floor( Math.random()*pokeData.moves.length); i <pokeData.moves.length && i < 4; i++){
-        console.log(i);
-        pokemonMoveArray.push(pokeData.moves[i].move.name);
-        console.log(pokemonMoveArray)
-        } */
         let shuffledMoves = pokeData.moves.sort(() =>  0.5 - Math.random()).slice(0, 4);
         shuffledMoves.forEach(move => {
             pokemonMoveArray.push(move.move.name);
@@ -152,6 +144,11 @@ async function getPokemon(){
     let pokeEvoAPI = await fetch(`${pokeEvoURL}`)
     let pokeEvoData = await pokeEvoAPI.json()
     console.log(pokeEvoData)
+
+    // background color change
+    let backgroundColor = pokeSpeciesData.color.name
+    console.log(backgroundColor)
+    document.body.style.backgroundColor = backgroundColor;
 
     //fetching flavor text 
 
