@@ -68,6 +68,9 @@ body{
 }
 
 .pokedex-type-button{
+    display:flex;
+    justify-content: center;
+    width:100%;
     margin-bottom: 4px;
 }
 
@@ -87,4 +90,15 @@ body{
     font-size: 12px;
     margin-left: 24px;
     margin-right: 24px;
+    margin-bottom: 24px;
+}
+
+.pokedex-stats-container{
+    width:100%;
+    display: flex;
+    flex-flow: row;
+}
+
+.pokedex-info-headers{
+    width:100%;
 }
