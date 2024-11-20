@@ -171,7 +171,7 @@ body{
 }
 
 .evolution-chain-container{
-    width:100%;
+    width:90%;
     display:flex;
     flex-flow: column;
     align-items: center;
@@ -183,6 +183,7 @@ body{
     align-items: center;
     justify-content: space-between;
     text-align: center;
+    padding:10px
 }
 
 
@@ -193,5 +194,9 @@ body{
     text-align: center;
     border-bottom: 1px solid grey;
     margin:0;
+}
+
+.title-small{
+    font-weight: 300;
 }
 
