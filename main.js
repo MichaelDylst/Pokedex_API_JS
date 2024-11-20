@@ -29,6 +29,8 @@ async function getPokemon(){
     const evoNames = [];
     const imageEvoList = [];
     const pokedexInfo = document.getElementById("pokedex-info")
+    const evoChainContainer = document.querySelector("#chain-evo"); 
+    const prevEvoContainer = document.querySelector("#prev-evo");  
     
     pokedexShape.style.display = "flex"
 
@@ -171,7 +173,43 @@ async function getPokemon(){
         console.log(imageEvoList);
         let e = 0;
 
-         imageEvoList.forEach(element => {
+        imageEvoList.forEach((element, index) => {
+                // Maak een nieuwe div voor elke evolutie
+                let evoContainer = document.createElement("div");
+
+                // Maak een nieuw <p> element voor de naam
+                let evoPElement = document.createElement("p");
+                evoPElement.textContent = evoNames[index];
+                evoPElement.style.textTransform = "capitalize";
+                evoPElement.classList.add(`evolution-${index}`, "title-small");
+
+                // Maak een nieuw <img> element voor de afbeelding
+                let evoImgElement = document.createElement("img");
+                evoImgElement.src = element;
+                evoImgElement.alt = evoNames[index];
+                evoImgElement.classList.add(`evolution-image-${index}`, "evo-image");
+
+                // Voeg de naam en afbeelding toe aan de div
+                evoContainer.appendChild(evoPElement);
+                evoContainer.appendChild(evoImgElement);
+
+                // Voeg de evolutie-div toe aan de evolutieketen-container
+                evoChainContainer.appendChild(evoContainer);
+        });
+
+    // Update de Base Form (indien nodig)
+    if (evoNames[0] !== pokeData.name) {
+        // Verander de afbeelding in de Base Form container
+        const prevEvoImage = prevEvoContainer.querySelector(".prev-evo-image");
+        prevEvoImage.src = imageEvoList[0];
+        prevEvoImage.alt = `Base Form: ${evoNames[0]}`;
+        prevEvoImage.style.display = "block"; // Zorg dat deze zichtbaar is
+    } else {
+        prevEvoContainer.style.display = "none"; // Verberg als er geen Base Form is
+    }
+
+
+        /* imageEvoList.forEach(element => {
                 console.log(element);
                 let evoPElement = document.createElement("p");
                 let evoImgElement = document.createElement("img");
@@ -190,7 +228,7 @@ async function getPokemon(){
             prevEvoImage.appendChild(evoImgElement)
         }else{
             prevEvoImage.style.display = "inline";
-        }
+        }*/
        
     };
 }

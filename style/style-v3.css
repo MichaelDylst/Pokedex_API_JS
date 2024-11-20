@@ -186,6 +186,7 @@ body{
     align-items: center;
     justify-content: space-between;
     text-align: center;
+    width:100%;
 }
 
 .evo-image{
