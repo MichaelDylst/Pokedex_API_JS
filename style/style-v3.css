@@ -28,6 +28,7 @@ body{
     margin-bottom: 0.2rem;
     width: 150px;
     font-family: Atma;
+    font-weight: 400;
 }
 
 .pokedex-shape{
@@ -41,9 +42,24 @@ body{
     margin-top:1.2em;
 }
 
+.pokedex-images {
+    display: flex; /* Zorgt ervoor dat de inhoud binnen de div wordt gepositioneerd met Flexbox */
+    justify-content: center; /* Zorgt ervoor dat de afbeelding horizontaal wordt gecentreerd */
+    align-items: center; /* Zorgt ervoor dat de afbeelding verticaal wordt gecentreerd */
+    height: 150px; /* Zorg ervoor dat de container een hoogte heeft die overeenkomt met de afbeelding */
+    width: 100%; /* Zorgt ervoor dat de container de volledige breedte van zijn oudercontainer gebruikt */
+    margin-top:-100px;
+}
+
 .pokemon-image-top {
     height: 150px;
     width: auto;
-    align-items: baseline;
-    margin-top:-110px;
+}
+
+.pokemon-name{
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
+    height:auto;
+
 }
