@@ -24,6 +24,7 @@ async function getPokemon(){
     let evoImages = document.getElementById("chain-evo")
     let prevEvoImage = document.getElementById("prev-evo")
     let pokedexTypes = document.getElementById("pokedex-types")
+    let pokedexAbilities = document.getElementById("pokedex-abilities");
     let runner = 1;
     let flavorText = document.getElementsByClassName("flavor-text")[0];
 
@@ -31,6 +32,7 @@ async function getPokemon(){
     const pokemonMoveArray = [];
     const evoNames = [];
     const imageEvoList = [];
+    const pokemonAbilitiesArray = [];
     const evoChainContainer = document.querySelector("#chain-evo"); 
     const prevEvoContainer = document.querySelector("#prev-evo");
 
@@ -75,6 +77,14 @@ async function getPokemon(){
             img.remove();
         })
     };
+
+    if (pokedexAbilities.querySelector("p")){
+        let abilityChilds = pokedexAbilities.querySelectorAll("p");
+        abilityChilds.forEach(p =>{
+            p.remove();
+        } )
+    }
+
     // first API-call to fetch the data when the searchbutton is clicked.
     let pokeResponse = await fetch(`${pokeURL}${searchInput}`);
     let pokeData = await pokeResponse.json();
@@ -86,7 +96,7 @@ async function getPokemon(){
     pokemonName.innerHTML = pokeData.name;
 
         pokemonName.style.textTransform = "capitalize";
-
+    
     // Type select,  putting them in array, foreach through array and adding h3 elements for each element in array.
     for(let i = 0; i < pokeData.types.length; i++){
         pokemonTypes.push(pokeData.types[i].type.name)
@@ -118,6 +128,19 @@ async function getPokemon(){
             moveElement.textContent = j;
             pokedexMoves.appendChild(moveElement)
     });
+
+    //abilities
+
+    for(let i= 0; i< pokeData.abilities.length; i++){
+        pokemonAbilitiesArray.push(pokeData.abilities[i].ability.name)
+        console.log(pokemonAbilitiesArray)
+    }
+        pokemonAbilitiesArray.forEach(ability => {
+            let abilityElement = document.createElement("p");
+            abilityElement.style.textTransform = "capitalize";
+            abilityElement.textContent = ability;
+            pokedexAbilities.appendChild(abilityElement);
+        })
     
     // get evolution data from API call 
     let pokeSpeciesURL = `https://pokeapi.co/api/v2/pokemon-species/${pokeID}/`;
@@ -137,10 +160,9 @@ async function getPokemon(){
     
     //fetching flavor text
     let flavorTextAPI = pokeSpeciesData.flavor_text_entries[0].flavor_text;
-    flavorText.innerHTML = flavorTextAPI;
-    
+    flavorText.innerHTML = flavorTextAPI;    
 
-     evoNames.push(pokeEvoData.chain.species.name);
+    evoNames.push(pokeEvoData.chain.species.name);
     pokeEvoData.chain.evolves_to.forEach(evolution => {
         evoNames.push(evolution.species.name)
 
