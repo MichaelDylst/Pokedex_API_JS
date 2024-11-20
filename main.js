@@ -78,7 +78,7 @@ async function getPokemon(){
     let pokemonImageSrc = pokeData.sprites.other.dream_world.front_default;
     image.src = pokemonImageSrc 
     let pokeID = pokeData.id;
-    pokemonName.innerHTML = pokeData.name + "<br> # " + pokeID;
+    pokemonName.innerHTML = pokeData.name;
 
         pokemonName.style.textTransform = "capitalize";
 
@@ -93,14 +93,15 @@ async function getPokemon(){
         if (pokemonTypes.length >= 1){
             pokemonTypes.forEach(j => {
                 console.log(j)
-                let typeElement = document.createElement("h3");
+                //let typeElement = document.createElement("h3");
                 let typeP = document.createElement("p");
-                typeElement.classList.add(`pokemon-type-${j}` + "border-bottom")
-                typeElement.textContent = `Type ${runner}: `;
-                typeElement.style.textTransform = "capitalize"
+                //typeElement.classList.add(`pokemon-type-${j}` + "border-bottom")
+                //typeElement.textContent = `Type ${runner}: `;
+                //typeElement.style.textTransform = "capitalize"
+                typeP.classList.add("button-style")
                 typeP.textContent = j;
                 typeP.style.textTransform = "capitalize";
-                pokedexTypes.appendChild(typeElement);
+                //pokedexTypes.appendChild(typeElement);
                 pokedexTypes.appendChild(typeP);
                 runner++;
             });;

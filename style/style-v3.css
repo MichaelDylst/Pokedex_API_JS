@@ -42,7 +42,7 @@ body{
     margin-top:1.2em;
 }
 
-.pokedex-images {
+.pokemon-images {
     display: flex; /* Zorgt ervoor dat de inhoud binnen de div wordt gepositioneerd met Flexbox */
     justify-content: center; /* Zorgt ervoor dat de afbeelding horizontaal wordt gecentreerd */
     align-items: center; /* Zorgt ervoor dat de afbeelding verticaal wordt gecentreerd */
@@ -61,5 +61,17 @@ body{
     font-weight: 600;
     text-align: center;
     height:auto;
+}
 
+.name-tag{
+    margin:0;
+}
+
+.button-style{
+    border: 2px solid black;
+    padding:3px;
+    width: 70px;
+    border-radius: 20px;
+    text-align: center;
+    margin: 0;
 }
