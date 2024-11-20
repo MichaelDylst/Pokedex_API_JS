@@ -9,7 +9,7 @@ let pokedexShape = document.getElementById("pokedex-shape")
 async function getPokemon(){
     // assigning the variables from the html document 
     let searchInput = document.getElementById("search-field").value.toLowerCase();
-    let image = document.getElementById("pokemon-image");
+    let image = document.getElementsByClassName("pokemon-image-top")[0];
         console.log(searchInput)
     let pokemonName = document.getElementsByClassName("pokemon-name")[0];
     let pokemonType = document.getElementsByClassName("pokemon-type")[0];
