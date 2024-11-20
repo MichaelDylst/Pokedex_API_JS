@@ -23,6 +23,7 @@ async function getPokemon(){
     let evoImageOne = document.getElementsByClassName("evolution-image-0")[0];
     let evoImageTwo = document.getElementsByClassName("evolution-image-1")[0];
     let evoImageThree = document.getElementsByClassName("evolution-image-2")[0];
+
     const pokemonTypes = [];
     const pokemonMoveArray = [];
     const evoNames = [];
@@ -176,7 +177,9 @@ async function getPokemon(){
                 let evoImgElement = document.createElement("img");
                 evoPElement.textContent = evoNames[e];
                 evoImgElement.src = element;
+                evoImgElement.classList.add(`evolution-image-${e}`,"evo-image")
                 evoPElement.style.textTransform = "capitalize";
+                evoPElement.classList.add(`evolution-${e}`,"title-small")
                 evoImages.appendChild(evoPElement);
                 evoImages.appendChild(evoImgElement);
                 e++;
@@ -188,9 +191,8 @@ async function getPokemon(){
         }else{
             prevEvoImage.style.display = "inline";
         }
+       
     };
-
-
 }
 
 // Voeg een event listener toe aan het invoerveld

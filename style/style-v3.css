@@ -127,6 +127,9 @@ body{
 .button:hover{
     background-color: rgb(143, 206, 227);
 }
+.button:active{
+    transform: scale(0.95);
+}
 
 .pokedex-stats-container{
     /*border: 1px solid black;*/
@@ -179,11 +182,10 @@ body{
 
 .chain-evo-images-container{
     display:flex;
-    flex-flow: row;
+    flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
     text-align: center;
-
 }
 
 .evo-image{
