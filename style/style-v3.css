@@ -1,7 +1,8 @@
 body{
-    display: flex;
-    flex-flow: column;
     font-family: Verdana, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: lightblue;
 }
 
 .pokedex-info-header{
@@ -9,7 +10,29 @@ body{
     flex-flow: column wrap;
     align-items: center;
     padding-bottom: 200px;
+    width:100%;
+
+    position: relative;
 }
+
 .pokedex-info-header h1{
     margin: 0;
+}
+
+.pokedex-shape{
+    display: flex;
+    height:100vh;
+    flex-flow: column;
+    align-items: center;
+    background-color: lightcoral;
+    border-top-left-radius: 80px;
+    border-top-right-radius: 80px;
+}
+
+.pokemon-image-top {
+    position: absolute; /* Hiermee kun je de afbeelding boven de onderkant van de header plaatsen */
+    bottom: 0; /* Plaatst de afbeelding tegen de onderkant van de header */
+    height: 150px;
+    width: auto;
+    border: 1px solid black;
 }
