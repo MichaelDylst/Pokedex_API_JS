@@ -3,7 +3,7 @@ body{
     margin-top: 5px;
     padding: 0;
     margin: auto;
-    background-color: lightblue;
+    background-color: lightcoral;
     max-width: 600px;
     display:flex;
     flex-direction: column;
@@ -39,7 +39,7 @@ body{
 
 .pokedex-shape{
     display: flex;
-    height:128vh;
+    height:72vh;
     flex-flow: column;
     align-items: center;
     background-color: rgb(255, 246, 233);
@@ -187,6 +187,8 @@ body{
     align-items: center;
     justify-content: space-between;
     text-align: center;
+    width:100%;
+    overflow:auto;
 
 }
 
