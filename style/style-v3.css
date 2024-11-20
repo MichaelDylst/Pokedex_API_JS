@@ -67,11 +67,15 @@ body{
     margin:0;
 }
 
+.pokedex-type-button{
+    margin-bottom: 128px;
+}
+
 .button-style{
-    border: 2px solid black;
+    border: 1px solid black;
     padding:3px;
     width: 70px;
     border-radius: 20px;
     text-align: center;
-    margin: 0;
+    margin:4px;
 }
