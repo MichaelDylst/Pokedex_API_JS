@@ -25,7 +25,7 @@ async function getPokemon(){
     let prevEvoImage = document.getElementById("prev-evo")
     let pokedexTypes = document.getElementById("pokedex-types")
     let runner = 1;
-
+    let flavorText = document.getElementsByClassName("flavor-text")[0];
 
     const pokemonTypes = [];
     const pokemonMoveArray = [];
@@ -74,10 +74,7 @@ async function getPokemon(){
         prevEvoChilds.forEach(img =>{
             img.remove();
         })
-    }
-
-
-
+    };
     // first API-call to fetch the data when the searchbutton is clicked.
     let pokeResponse = await fetch(`${pokeURL}${searchInput}`);
     let pokeData = await pokeResponse.json();
@@ -90,12 +87,6 @@ async function getPokemon(){
 
         pokemonName.style.textTransform = "capitalize";
 
-    // get pokemon_id
-    
-    //pokemonId.innerHTML = "ID: " + pokeID;
-
-
-        
     // Type select,  putting them in array, foreach through array and adding h3 elements for each element in array.
     for(let i = 0; i < pokeData.types.length; i++){
         pokemonTypes.push(pokeData.types[i].type.name)
@@ -144,10 +135,12 @@ async function getPokemon(){
     console.log(backgroundColor)
     document.body.style.backgroundColor = backgroundColor;
     
-    //fetching flavor text 
+    //fetching flavor text
+    let flavorTextAPI = pokeSpeciesData.flavor_text_entries[0].flavor_text;
+    flavorText.innerHTML = flavorTextAPI;
+    
 
-
-    evoNames.push(pokeEvoData.chain.species.name);
+     evoNames.push(pokeEvoData.chain.species.name);
     pokeEvoData.chain.evolves_to.forEach(evolution => {
         evoNames.push(evolution.species.name)
 

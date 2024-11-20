@@ -39,7 +39,7 @@ body{
 
 .pokedex-shape{
     display: flex;
-    height:78vh;
+    height:128vh;
     flex-flow: column;
     align-items: center;
     background-color: rgb(255, 246, 233);
@@ -102,7 +102,7 @@ body{
 }
 
 .flavor-text{
-    margin:0;
+    margin-top:48px;
 }
 
 .pokedex-button-container{
@@ -174,7 +174,7 @@ body{
 }
 
 .evolution-chain-container{
-    width:90%;
+    width:100%;
     display:flex;
     flex-flow: column;
     align-items: center;
@@ -183,13 +183,12 @@ body{
 
 .chain-evo-images-container{
     display:flex;
-    flex-flow: row nowrap;
-    align-items: center;
+    flex-flow: row;
     justify-content: space-between;
+    align-items: center;
     text-align: center;
-    width:100%;
     overflow:auto;
-
+    width:100%;
 }
 
 .evo-image{
