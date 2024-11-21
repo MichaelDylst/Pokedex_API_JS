@@ -28,6 +28,7 @@ async function getPokemon(){
     let runner = 1;
     let flavorText = document.getElementsByClassName("flavor-text")[0];
     let eggImage = "images/egg.png";
+    let chainEvoContainer = document.getElementsByClassName("chain-evo-images-container")[0];
 
     const pokemonTypes = [];
     const pokemonMoveArray = [];
@@ -178,6 +179,12 @@ async function getPokemon(){
         console.log("There is only a base evolution.");
     }  
 
+    // fix centering when having single pokemon in chain.
+    if(evoNames.length === 1){
+            chainEvoContainer.style.width = "auto";
+        };
+    console.log("the length is: " + evoNames.length);
+
     if(evoNames.length >= 1){
         for(let i = 0; i < evoNames.length; i++){
             let pokeEvoImage = await fetch(`${pokeURL}${evoNames[i]}`);
@@ -226,6 +233,9 @@ async function getPokemon(){
             prevEvoContainer.appendChild(prevEvoImage);
         }
     };
+
+
+
 }
 
 // Voeg een event listener toe aan het invoerveld
